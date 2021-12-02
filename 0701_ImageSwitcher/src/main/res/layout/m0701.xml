@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/m0701_r01"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Black"
+    android:padding="@dimen/Spacing">
+
+    <GridView
+        android:id="@+id/m0701_g001"
+        android:layout_width="120dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:columnWidth="110dp"
+        android:numColumns="auto_fit"
+        android:scrollbarStyle="outsideOverlay"
+        android:stretchMode="columnWidth" />
+    <!--columnWidth 控制gridview的itme寬度-->
+    <!--strechMode="columnWidth"可縮放與列寬大小同步，等比例把空餘的位置分配給每一列-->
+
+    <ImageSwitcher
+        android:id="@+id/m0701_im01"
+        android:layout_width="match_parent"
+        android:layout_height="300sp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="@dimen/p20"
+        android:layout_marginTop="200sp"
+        android:layout_toEndOf="@+id/m0701_g001"
+        android:scaleType="fitXY" />
+    <!--android:layout_gravity="center"  圖片居中顯示-->
+    <!--android:scaleType="fitXY" 把圖片按照指定的大小在View中顯示-->
+    <!--android:scaleType屬性的常用參數設置如下：-->
+    <!--CENTER :在視圖中使圖像居中，不執行縮放-->
+    <!--CENTER_CROP :   均衡的縮放圖像（保持圖像原始比例），使圖片的兩個坐標（寬、高）都大於等於相應的視圖坐標（負的內邊距）。圖像則位於視圖的中央-->
+    <!--CENTER_INSIDE :  均衡的縮放圖像（保持圖像原始比例），使圖片的兩個坐標（寬、高）都小於等於相應的視圖坐標（負的內邊距）。圖像則位於視圖的中央-->
+    <!--FIT_CENTER:把圖片按比例擴大(縮小)到View的寬度，居中顯示-->
+    <!--FIT_END:把圖片按比例擴大(縮小)到View的寬度，顯示在View的下部位置-->
+    <!--FIT_START:把圖片按比例擴大(縮小)到View的寬度，顯示在View的上部位置-->
+    <!--FIT_XY:把圖片按照指定的大小在View中顯示，拉伸顯示圖片，不保持原比例，填滿View-->
+    <!--MATRIX:    繪製時，使用圖像矩陣方式縮放。圖像矩陣可以通過setImageMatrix(Matrix)設置-->
+
+    <TextView
+        android:id="@+id/myname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/m0701_g001"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:text="@string/myname"
+        android:textColor="@android:color/holo_orange_light"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>

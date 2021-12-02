@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">7.1影像畫廊</string>
+    <string name="myname">2號 許筱昀</string>
+
+    <string name="action_settings">結束</string>
+    <string name="action_about">關於我</string>
+    <string name="noback">禁用返回鍵</string>
+</resources>

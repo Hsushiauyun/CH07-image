@@ -12,6 +12,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/0700_LifeCycle" />
             <option value="$PROJECT_DIR$/0701_ImageSwitcher" />
+            <option value="$PROJECT_DIR$/0702_Animation" />
+            <option value="$PROJECT_DIR$/myapplication" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

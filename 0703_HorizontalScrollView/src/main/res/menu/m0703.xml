@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/item01"
+        android:title="@string/Alpha" />
+    <item
+        android:id="@+id/item02"
+        android:title="@string/m0703_trans" />
+    <item
+        android:id="@+id/item03"
+
+        android:title="@string/m0703_rotate" />
+    <item
+        android:id="@+id/item04"
+        android:title="@string/m0703_bounce" />
+    <item
+        android:id="@+id/item05"
+        android:title="@string/item05" />
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="always" />
+</menu>

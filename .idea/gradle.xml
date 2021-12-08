@@ -13,6 +13,9 @@
             <option value="$PROJECT_DIR$/0700_LifeCycle" />
             <option value="$PROJECT_DIR$/0701_ImageSwitcher" />
             <option value="$PROJECT_DIR$/0702_Animation" />
+            <option value="$PROJECT_DIR$/0703_HorizontalScrollView" />
+            <option value="$PROJECT_DIR$/0704_ListView_with_icons" />
+            <option value="$PROJECT_DIR$/0705_Game_Animation" />
             <option value="$PROJECT_DIR$/myapplication" />
           </set>
         </option>

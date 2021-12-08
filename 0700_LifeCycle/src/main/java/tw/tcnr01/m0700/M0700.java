@@ -11,51 +11,51 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class M0700 extends AppCompatActivity {
-    private  final String TAG="tcnr01=>";  //
+    private final String TAG = "tcnr01=>";  //
 
 
-        @Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.m0700);
 
-            Log.d(TAG,"onCreate()"); //
-            setupViewComponent();
+        Log.d(TAG, "onCreate()"); //
+        setupViewComponent();
     }
 
     private void setupViewComponent() {
-        int a=9999+123;
-        Log.d(TAG,"setupViewComponent()"+a);
+        int a = 9999 + 123;
+        Log.d(TAG, "setupViewComponent()" + a);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d(TAG,"onStart()");
+        Log.d(TAG, "onStart()");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d(TAG," onResume()");
+        Log.d(TAG, " onResume()");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d(TAG," onPause()");
+        Log.d(TAG, " onPause()");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d(TAG," onStop()");
+        Log.d(TAG, " onStop()");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d(TAG,"onDestroy()");
+        Log.d(TAG, "onDestroy()");
     }
 
     //--------------------------------------------------------------------------------
@@ -67,7 +67,7 @@ public class M0700 extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Toast.makeText(getApplicationContext(),getString(R.string.noback),Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), getString(R.string.noback), Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -76,7 +76,7 @@ public class M0700 extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        switch(item.getItemId()){
+        switch (item.getItemId()) {
 
             case R.id.action_about:
                 break;
@@ -86,6 +86,7 @@ public class M0700 extends AppCompatActivity {
         }
         return true;
     }
+
     //--------------------------------------------------------------------
 
 

@@ -1,12 +1,13 @@
 package tw.tcnr02.m0702;
 
 import android.content.Context;
+import android.database.DataSetObserver;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
-
+import android.widget.ListAdapter;
 
 class GridAdapter extends BaseAdapter {
     private  Integer[] imgThumbIds;
@@ -16,7 +17,6 @@ class GridAdapter extends BaseAdapter {
         context = c;
         imgThumbIds = thumbImgArr;
     }
-
 
     @Override     // 傳回圖片數
     public int getCount() {
@@ -40,7 +40,7 @@ class GridAdapter extends BaseAdapter {
             imageView = new ImageView(context);
             imageView.setLayoutParams(new GridView.LayoutParams(300, 200));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView.setPadding(8, 8, 8, 8);
+            imageView.setPadding(15, 5, 15, 5);
         } else {
             imageView = (ImageView) convertView;
         }

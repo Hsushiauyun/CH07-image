@@ -4,7 +4,9 @@ import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.BounceInterpolator;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageSwitcher;
@@ -19,7 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class M0705 extends AppCompatActivity implements ViewSwitcher.ViewFactory,View.OnClickListener {
 
-    private ImageView txtComPlay;
+    private ImageSwitcher txtComPlay;
     private TextView txtSelect;
     private TextView txtResult;
     private ImageButton btnScissors;
@@ -44,16 +46,19 @@ public class M0705 extends AppCompatActivity implements ViewSwitcher.ViewFactory
     }
     private void setupViewComponent(){
 
-        txtComPlay=(ImageView)findViewById(R.id.m0705_c001);
+        txtComPlay=(ImageSwitcher)findViewById(R.id.m0705_c001);
+        txtComPlay.setFactory(this);
         txtSelect=(TextView)findViewById(R.id.m0705_s001);
         txtResult=(TextView) findViewById(R.id.m0705_f000);
         btnScissors=(ImageButton)findViewById(R.id.m0705_b001);
         btnStone=(ImageButton)findViewById(R.id.m0705_b002);
         btnNet=(ImageButton)findViewById(R.id.m0705_b003);
+        u_setalpha();
+
 
         // ---開機動畫---
         r_layout = (RelativeLayout) findViewById(R.id.m0705_r001);
-        r_layout.setBackgroundResource(R.drawable.back01);
+        r_layout.setBackgroundResource(R.drawable.back02);
 //        r_layout.setAnimation(AnimationUtils.loadAnimation(this, R.anim.anim_scale_rotate_out));
         r_layout.setAnimation(AnimationUtils.loadAnimation(this, R.anim.anim_scale_rotate_in));
         r_layout.setBackgroundResource(R.drawable.back01);
@@ -81,14 +86,16 @@ public class M0705 extends AppCompatActivity implements ViewSwitcher.ViewFactory
 //        btnNet.getBackground().setAlpha(0);
 
     private void u_setalpha(){ //歸零
-        btnScissors.setBackgroundColor(Color.GRAY);
+        btnScissors.setBackgroundResource(R.drawable.circle_shape);
         btnScissors.getBackground().setAlpha(0); //0~225
-        btnStone.setBackgroundColor(Color.GRAY);
+        btnStone.setBackgroundResource(R.drawable.circle_shape);
         btnStone.getBackground().setAlpha(0);
-        btnNet.setBackgroundColor(Color.GRAY);
+        btnNet.setBackgroundResource(R.drawable.circle_shape);
         btnNet.getBackground().setAlpha(0);
+        txtComPlay.setBackgroundResource(R.drawable.ring);
+        txtComPlay.getBackground().setAlpha(225);
 
-    }
+            }
 
 
     private View.OnClickListener btn01On=new Button.OnClickListener(){
@@ -96,13 +103,16 @@ public class M0705 extends AppCompatActivity implements ViewSwitcher.ViewFactory
         public  void  onClick(View v){
             int iComPlay=(int)(Math.random()*3+1);
             switch (v.getId()){  //玩家出拳
-                case R.id.m0705_b001: //玩家選擇剪刀
+                case R.id.m0705_b001:
+                    //玩家選擇剪刀
                     user_select = getString(R.string.m0705_s001) + "  "+getString(R.string.m0705_b001);
                     u_setalpha();
-                    btnScissors.getBackground().setAlpha(100);
+                    btnScissors.getBackground().setAlpha(225);
                     switch (iComPlay){
                         case 1:
                             txtComPlay.setImageResource(R.drawable.scissors); //電腦選剪刀
+                            btnNet.setBackgroundResource(R.drawable.circle_shape);
+                            btnNet.getBackground().setAlpha(0);
 //                            ff = getString(R.string.m0705_f000) + "  " + getString(R.string.m0705_f001); //ff為變數 是猜拳結果
 //                            txtResult.setTextColor(getResources().getColor(R.color.Yellow));
                             music(2);
@@ -125,7 +135,7 @@ public class M0705 extends AppCompatActivity implements ViewSwitcher.ViewFactory
                 case R.id.m0705_b002: //選擇石頭
                     user_select = getString(R.string.m0705_s001) + "  "+ getString(R.string.m0705_b002);
                     u_setalpha();
-                    btnStone.getBackground().setAlpha(100);
+                    btnStone.getBackground().setAlpha(225);
                     switch (iComPlay){
                         case 1:
                             txtComPlay.setImageResource(R.drawable.scissors);
@@ -147,10 +157,10 @@ public class M0705 extends AppCompatActivity implements ViewSwitcher.ViewFactory
                             break;
                     }
                     break;
-                case R.id.m0705_b003: //玩家選擇布
+                    case R.id.m0705_b003: //玩家選擇布
                     user_select = getString(R.string.m0705_s001) + "  "+ getString(R.string.m0705_b003);
                     u_setalpha();
-                    btnNet.getBackground().setAlpha(100);
+                    btnNet.getBackground().setAlpha(225);
                     switch (iComPlay){
                         case 1:
                             txtComPlay.setImageResource(R.drawable.scissors);
@@ -173,6 +183,11 @@ public class M0705 extends AppCompatActivity implements ViewSwitcher.ViewFactory
                     }
                     break;
             }
+            //電腦出拳增加動畫
+            txtComPlay.clearAnimation();
+            Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.anim_trans_bounce); //down
+            anim.setInterpolator(new BounceInterpolator()); //jump
+            txtComPlay.setAnimation(anim);
             txtSelect.setText(user_select);
             txtResult.setText(ff);
 
@@ -182,44 +197,41 @@ public class M0705 extends AppCompatActivity implements ViewSwitcher.ViewFactory
 
 
     private void music(int i) {
-        toast=null;
+        toast = null;
 
-        if(startmusic.isPlaying()) startmusic.stop();
-        if(mediaWin.isPlaying()) mediaWin.pause();
-        if(mediaLose.isPlaying()) mediaLose.pause();
-        if(mediaDraw.isPlaying()) mediaDraw.pause();
+        if (startmusic.isPlaying()) startmusic.stop();
+        if (mediaWin.isPlaying()) mediaWin.pause();
+        if (mediaLose.isPlaying()) mediaLose.pause();
+        if (mediaDraw.isPlaying()) mediaDraw.pause();
 
 
-
-        switch(i){ //i=1 代表贏
+        switch (i) { //i=1 代表贏
 
             case 1://贏
                 mediaWin.start();
                 ff = getString(R.string.m0705_f000) + "  " + getString(R.string.m0705_f003);
                 txtResult.setTextColor(getResources().getColor(R.color.Lime));
-                Toast.makeText(getApplicationContext(),getString(R.string.m0705_f003), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.m0705_f003), Toast.LENGTH_LONG).show();
                 break;
             case 2://平手
                 mediaDraw.start();
-                ff= getString(R.string.m0705_f000)+"   "+getString(R.string.m0705_f001);
+                ff = getString(R.string.m0705_f000) + "   " + getString(R.string.m0705_f001);
                 txtResult.setTextColor(getResources().getColor(R.color.Yellow));
-                Toast.makeText(getApplicationContext(),getString(R.string.m0705_f001), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.m0705_f001), Toast.LENGTH_LONG).show();
                 break;
             case 3://輸
                 mediaLose.start();
-                ff=getString(R.string.m0705_f000)+"  "+getString(R.string.m0705_f002);
+                ff = getString(R.string.m0705_f000) + "  " + getString(R.string.m0705_f002);
                 txtResult.setTextColor(getResources().getColor(R.color.Red));
-                Toast.makeText(getApplicationContext(),getString(R.string.m0705_f002), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.m0705_f002), Toast.LENGTH_LONG).show();
                 break;
             case 4://輸
                 mediaNight.start();
                 break;
 
         }
-
-
-
     }
+
 
 //    @Override
 //    protected void onDestroy() {

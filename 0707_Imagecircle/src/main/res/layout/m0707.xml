@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Silver"
+    tools:context=".M0707">
+
+    <TextView
+        android:id="@+id/m0707_t001"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="334dp"
+        android:text="@string/m0707_t001"
+        android:textSize="@dimen/fontsize" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="26dp"
+        android:text="@string/name"
+        android:textSize="@dimen/fontsize" />
+
+    <tw.tcnr02.m0707.CircleImgView
+        android:id="@+id/circleImgView01"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="346dp"
+        android:background="@drawable/ic_launcher0707_foreground"
+        android:scaleType="matrix"
+        app:srcCompat="@drawable/download" />
+
+    <tw.tcnr02.m0707.CircleImgbutton
+        android:id="@+id/m0707_Imgbutton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_above="@+id/textView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="49dp"
+        android:layout_marginBottom="243dp"
+        android:background="@drawable/ic_launcher0707_foreground"
+        android:scaleType="matrix"
+        app:srcCompat="@drawable/cutie" />
+
+</RelativeLayout>

@@ -16,7 +16,12 @@
             <option value="$PROJECT_DIR$/0703_HorizontalScrollView" />
             <option value="$PROJECT_DIR$/0704_ListView_with_icons" />
             <option value="$PROJECT_DIR$/0705_Game_Animation" />
-            <option value="$PROJECT_DIR$/myapplication" />
+            <option value="$PROJECT_DIR$/0706_TextView_setup" />
+            <option value="$PROJECT_DIR$/0707_Imagecircle" />
+            <option value="$PROJECT_DIR$/0708_ListView_circleImage" />
+            <option value="$PROJECT_DIR$/0709_Android_SHAPE" />
+            <option value="$PROJECT_DIR$/0710_andrdrawable" />
+            <option value="$PROJECT_DIR$/circleimageview" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

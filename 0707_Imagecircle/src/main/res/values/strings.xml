@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">7.7 circle</string>
+    <string name="name">02 許筱昀</string>
+    <string name="m0707_t001">物件:</string>
+   <string name="m0707_img" >這是ImageView</string>
+    <string name="m0707_imgbutton" >這是Imagebutton</string>
+
+</resources>

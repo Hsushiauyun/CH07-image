@@ -10,10 +10,16 @@ rootProject.name = "CH07-image"
 include ':0700_LifeCycle'
 include ':0701_ImageSwitcher'
 include ':0702_Animation'
-
-include ':myapplication'
 include ':0703_HorizontalScrollView'
 include ':0704_ListView_with_icons'
 include ':0705_Game_Animation'
+include ':0706_TextView_setup'
+include ':0707_Imagecircle'
+include ':circleimageview'
+include ':0708_ListView_circleImage'
+include ':0709_Android_SHAPE'
+include ':0710_andrdrawable'
+
+
 
 
